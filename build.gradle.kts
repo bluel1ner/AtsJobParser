@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    implementation("com.velopayments:java-spring-resttemplate:2.32.2")
 }
 
 tasks.test {
