@@ -1,4 +1,4 @@
-package org.blueliner
+package org.blueliner.Plump
 
 data class PlumpJobResponse(
     val jobs: List<Job> = emptyList()

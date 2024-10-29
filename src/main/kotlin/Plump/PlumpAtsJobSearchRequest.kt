@@ -1,4 +1,4 @@
-package org.blueliner
+package org.blueliner.Plump
 
 class PlumpAtsJobSearchRequest(
     val page: Int,
