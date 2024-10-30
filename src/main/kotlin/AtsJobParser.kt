@@ -1,14 +1,72 @@
 package org.blueliner
 
+import com.github.doyaaaaaken.kotlincsv.dsl.context.ExcessFieldsRowBehaviour
+import com.github.doyaaaaaken.kotlincsv.dsl.context.InsufficientFieldsRowBehaviour
 import org.blueliner.Nomads.JobSearchRequest
 import org.blueliner.Plump.PlumpAtsJobSearchRequest
 import java.io.File
+import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
 
 fun main() {
 //    plumpParser()
-    nomadsParser()
+//    nomadsParser()
+    twitterParser()
+//    val startTime = System.currentTimeMillis()
+//    readCsvLinesRangeKotlin("", 1, 10)
+//    val endTime = System.currentTimeMillis()
+//    val elapsedTime = endTime - startTime
+//    println("Method execution time: $elapsedTime ms")
+
 }
 
+fun twitterParser() {
+    val filePath = "src/main/resources/jobs.txt"
+    val totalLines = getAmountOfFileLines(File(filePath))
+    println(totalLines)
+    val workers = 10;
+    File(filePath).useLines { lines ->
+        {
+            lines.take(10).forEach { line -> println(line) }
+        }
+    }
+}
+
+fun getAmountOfFileLines(file: File): Long {
+    return file.readLines().size.toLong()
+}
+
+fun readCsvLinesRangeKotlin(filePath: String, startLine: Int, endLine: Int) {
+    val regex = Regex("https[^,]*")
+    val filePath = "src/main/resources/jobs.txt"
+    var counter = 0;
+    val csvFile = File(filePath).useLines { lines ->
+        lines
+            .drop(0)
+            .take(10000)
+            .forEach { line ->
+                counter++
+                val applyUrl = regex.find(line)?.value
+                println(applyUrl)
+            }
+    }
+    println(counter)
+//    csvReader {
+//        charset = "UTF-8"
+//        quoteChar = '"'
+//        excessFieldsRowBehaviour = ExcessFieldsRowBehaviour.IGNORE
+//        insufficientFieldsRowBehaviour = InsufficientFieldsRowBehaviour.EMPTY_STRING
+//    }.open(csvFile) {
+//        readAllAsSequence()
+//            .drop(3000)
+//            .take(3100)
+//            .forEach { row ->
+//                val string = row.joinToString(",")
+//                regex.find(string)?.let {
+//                        it -> println(it.value)
+//                }
+//            }
+//    }
+}
 
 val providers = listOf("greenhouse", "lever", "workable", "smartrecruiters", "ashby")
 
