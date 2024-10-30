@@ -47,7 +47,7 @@ fun main() = runBlocking {
 
     println("Method execution time: $elapsedTime ms")
     println(File(outputPath).readLines().size.toLong())
-    println("Does set size is equal to file size: ${setApplyUrls.size.equals(File(outputPath).readLines().size.toInt())}")
+    println("is set size equal to file size: ${setApplyUrls.size.equals(File(outputPath).readLines().size.toInt())}")
 }
 
 fun getAmountOfFileLines(file: File): Long {
