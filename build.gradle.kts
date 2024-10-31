@@ -13,6 +13,7 @@ dependencies {
     implementation("com.velopayments:java-spring-resttemplate:2.32.2")
     implementation("com.github.doyaaaaaken:kotlin-csv-jvm:1.8.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
+    implementation("com.google.code.gson:gson:2.8.9")
 }
 
 tasks.test {

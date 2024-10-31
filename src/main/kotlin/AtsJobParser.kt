@@ -50,25 +50,9 @@ fun readCsvLinesRangeKotlin(filePath: String, startLine: Int, endLine: Int) {
             }
     }
     println(counter)
-//    csvReader {
-//        charset = "UTF-8"
-//        quoteChar = '"'
-//        excessFieldsRowBehaviour = ExcessFieldsRowBehaviour.IGNORE
-//        insufficientFieldsRowBehaviour = InsufficientFieldsRowBehaviour.EMPTY_STRING
-//    }.open(csvFile) {
-//        readAllAsSequence()
-//            .drop(3000)
-//            .take(3100)
-//            .forEach { row ->
-//                val string = row.joinToString(",")
-//                regex.find(string)?.let {
-//                        it -> println(it.value)
-//                }
-//            }
-//    }
 }
 
-val providers = listOf("greenhouse", "lever", "workable", "smartrecruiters", "ashby")
+val providers = listOf("greenhouse", "lever", "workable", "smartrecruiters", "ashby", "click")
 
 fun nomadsParser() {
     val url = "https://www.workingnomads.com/jobsapi/_search"
